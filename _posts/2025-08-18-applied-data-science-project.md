@@ -79,7 +79,7 @@ In general, higher product ratings are associated with a stronger likelihood of 
 
 This suggests that a 3-star rating often reflects a neutral stance, highlighting an opportunity for Sephora to investigate and improve customer satisfaction for “average” products
 
-<img width="700" height="552" alt="image" src="https://github.com/user-attachments/assets/e7b3c640-448c-47fa-a9cf-5b7c532d16c7" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/e7b3c640-448c-47fa-a9cf-5b7c532d16c7" />
 
 _Fig 5 Positive Correlation between Recommend and Rating_
 
@@ -87,7 +87,7 @@ _Fig 5 Positive Correlation between Recommend and Rating_
 
 Based on the price distribution, most reviewed products fall within the lower price tier, primarily under $100. Higher-priced (i.e., prestige products) receive fewer reviews, possibly due to a smaller customer base for these premium items
 
-<img width="7000" height="532" alt="image" src="https://github.com/user-attachments/assets/4b244b38-13a9-4a61-b74c-9f2c5d46922b" />
+<img width="7000" height="450" alt="image" src="https://github.com/user-attachments/assets/4b244b38-13a9-4a61-b74c-9f2c5d46922b" />
 
 _Fig 6 Most reviewed products fall within the lower price tier_
 
