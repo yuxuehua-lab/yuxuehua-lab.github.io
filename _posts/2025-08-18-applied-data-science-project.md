@@ -96,7 +96,7 @@ _Fig 6 Most reviewed products fall within the lower price tier_
 The Product Dataset contains details on the product offering by Sephora. The features are outlined in Fig 7: Data Dictionary of Product Dataset.
 
 <img width="700" height="638" alt="image" src="https://github.com/user-attachments/assets/3aaf9a69-e727-4814-bc57-074ae147918d" />
-<img width="7000" height="638" alt="image" src="https://github.com/user-attachments/assets/362dfc71-3be5-4fa0-9155-229ea311316c" />
+<img width="700" height="638" alt="image" src="https://github.com/user-attachments/assets/362dfc71-3be5-4fa0-9155-229ea311316c" />
 
 _Fig 7 Data Dictionary of Product Dataset_
 
@@ -106,7 +106,7 @@ The key exploratory findings are summarized as follows:
 
 Most products fall into major categories such as Skincare, Makeup, Hair, Fragrance, and Bath & Body, which primarily target women. Smaller but notable groups include Mini Size, Men, Tools & Brushes, and Gifts, which represent more niche markets.
 
-<img width="550" height="573" alt="image" src="https://github.com/user-attachments/assets/6cff5931-08b5-4bc9-abe1-fc5698e2f1a4" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/6cff5931-08b5-4bc9-abe1-fc5698e2f1a4" />
 
 _Fig 8 Product Distribution_
 
@@ -116,7 +116,7 @@ Products with high loves counts tend to cluster around an average rating of 4.5,
 
 Ratings between 4.0–5.0 are generally associated with higher review volumes, indicating a strong correlation between perceived quality and customer engagement. Sparse data (low ratings and few reviews) likely corresponds to unpopular or poorly marketed products.
 
-<img width="550" height="309" alt="image" src="https://github.com/user-attachments/assets/8163cac0-2655-4822-939d-eebd2fb0e2f7" />
+<img width="700" height="309" alt="image" src="https://github.com/user-attachments/assets/8163cac0-2655-4822-939d-eebd2fb0e2f7" />
 
 _Fig 9 Product Popularity and Customer Engagement_
 
@@ -128,7 +128,7 @@ Customer popularity (measured by loves count) peaks in the USD 20–125 range, h
 
 A significant outlier was identified: a product priced above USD 1,750, which warrants further investigation.
 
-<img width="550" height="367" alt="image" src="https://github.com/user-attachments/assets/47adc1ff-cb92-4973-becf-b322be82a601" />
+<img width="700" height="367" alt="image" src="https://github.com/user-attachments/assets/47adc1ff-cb92-4973-becf-b322be82a601" />
 
 _Fig 10 Price and Customer Engagement_
 
@@ -159,7 +159,7 @@ _Fig 11 Features of Merged Dataset_
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
-<img width="150" height="901" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+<img width="350" height="901" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
 
 Fig 12 List of Features with Missing Values
 
@@ -209,7 +209,7 @@ The dataset contains product sizes expressed in different units, including "ml",
 
 Subsequently, a unit price per ml was calculated by dividing the product’s selling price by its size in milliliters. This standardization allows for meaningful comparisons of price across products of different sizes and ensures that size-related features are appropriately scaled for clustering and analysis.
 
-<img width="350" height="344" alt="image" src="https://github.com/user-attachments/assets/8b4e14c9-4d9b-4646-8c0b-8c99f16f98d8" />
+<img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/8b4e14c9-4d9b-4646-8c0b-8c99f16f98d8" />
 
 Fig 14 Extract of top 10 products
 
