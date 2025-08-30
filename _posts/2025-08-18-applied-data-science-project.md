@@ -71,6 +71,76 @@ Most reviewers have light to fair skin, brown eyes, and brown or black hair, wit
 
 _Fig 4 Customer Demographic_
 
+**3.	Positive Correlation Between Rating and Recommendation**
+
+In general, higher product ratings are associated with a stronger likelihood of recommendation.
+-	Products rated 4 or 5 stars are highly recommended.
+-	Products rated 3 stars receive mixed opinions: the number of customers recommending versus not recommending is nearly balanced.
+
+This suggests that a 3-star rating often reflects a neutral stance, highlighting an opportunity for Sephora to investigate and improve customer satisfaction for “average” products
+
+<img width="550" height="552" alt="image" src="https://github.com/user-attachments/assets/e7b3c640-448c-47fa-a9cf-5b7c532d16c7" />
+
+_Fig 5 Positive Correlation between Recommend and Rating_
+
+**4.	Price Tier Analysis**
+
+Based on the price distribution, most reviewed products fall within the lower price tier, primarily under $100. Higher-priced (i.e., prestige products) receive fewer reviews, possibly due to a smaller customer base for these premium items
+
+<img width="550" height="532" alt="image" src="https://github.com/user-attachments/assets/4b244b38-13a9-4a61-b74c-9f2c5d46922b" />
+
+_Fig 6 Most reviewed products fall within the lower price tier_
+
+#### 5.3.	Product Dataset
+
+The Product Dataset contains details on the product offering by Sephora. The features are outlined in Fig 7: Data Dictionary of Product Dataset.
+
+<img width="550" height="638" alt="image" src="https://github.com/user-attachments/assets/3aaf9a69-e727-4814-bc57-074ae147918d" />
+<img width="550" height="638" alt="image" src="https://github.com/user-attachments/assets/362dfc71-3be5-4fa0-9155-229ea311316c" />
+
+_Fig 7 Data Dictionary of Product Dataset_
+
+The key exploratory findings are summarized as follows:
+
+**1.	Product Distribution**
+
+Most products fall into major categories such as Skincare, Makeup, Hair, Fragrance, and Bath & Body, which primarily target women. Smaller but notable groups include Mini Size, Men, Tools & Brushes, and Gifts, which represent more niche markets.
+
+<img width="550" height="573" alt="image" src="https://github.com/user-attachments/assets/6cff5931-08b5-4bc9-abe1-fc5698e2f1a4" />
+
+_Fig 8 Product Distribution_
+
+**2.	Product Popularity and Customer Engagement**
+
+Products with high loves counts tend to cluster around an average rating of 4.5, suggesting they are both popular and well-liked. Products with low loves counts but high ratings (>4.5) may represent new, niche, or underexposed items with untapped growth potential.
+
+Ratings between 4.0–5.0 are generally associated with higher review volumes, indicating a strong correlation between perceived quality and customer engagement. Sparse data (low ratings and few reviews) likely corresponds to unpopular or poorly marketed products.
+
+<img width="550" height="309" alt="image" src="https://github.com/user-attachments/assets/8163cac0-2655-4822-939d-eebd2fb0e2f7" />
+
+_Fig 9 Product Popularity and Customer Engagement_
+
+**3.	Price and Customer Engagement**
+
+Ratings between 4.0–4.5 are most common in the price band just below USD 250, suggesting this range reflects a balance between affordability and high quality.
+
+Customer popularity (measured by loves count) peaks in the USD 20–125 range, highlighting strong engagement with mass-market products. Higher-priced items in the USD 250–500 range tend to receive lower loves counts, indicating they cater to niche or luxury segments with limited customer bases.
+
+A significant outlier was identified: a product priced above USD 1,750, which warrants further investigation.
+
+<img width="550" height="367" alt="image" src="https://github.com/user-attachments/assets/47adc1ff-cb92-4973-becf-b322be82a601" />
+
+_Fig 10 Price and Customer Engagement_
+
+
+
+
+
+
+
+
+
+
 
 
 ### Data Preparation
