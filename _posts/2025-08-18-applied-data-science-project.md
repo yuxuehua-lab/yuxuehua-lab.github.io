@@ -132,19 +132,39 @@ A significant outlier was identified: a product priced above USD 1,750, which wa
 
 _Fig 10 Price and Customer Engagement_
 
+## 6. Data Preparation
+
+For my analysis, the Review Dataset was used as the primary dataset, while the Product Dataset was integrated as a secondary source to enrich the customer-level information
+
+#### 6.1.	Merging of Dataset
+
+A left join was performed on the two datasets using the unique product_id as the key. This ensured that all customer reviews were retained while incorporating additional product attributes such as product category, price, and size. Duplicate columns that appeared in both datasets (e.g., brand_name, brand_id) were removed to avoid redundancy.
+
+#### 6.2.	Removal of Unnecessary Features
+
+Since the focus of this study is on customer demographics and product preferences, several features were removed to streamline the dataset
+
+Feature                                                                        | Reason for Removal             
+---------------------                                                          | --------------------- 
+Index column (unnamed:0)                                                       | Not relevant for analysis      
+total_feedback_count, total_neg_feedback_count, and total_pos_feedback_count   | Replaced with the more concise helpfulness feature.
+review_text, review_title, reviews, and avg_rating                             | Dropped to retain only the rating from individual reviewers.
+Time-related columns (submission_time, submission_year, submission_month, submission_quarter) | Excluded as temporal analysis is beyond the scope of this project
+
+<img width="550" height="650" alt="image" src="https://github.com/user-attachments/assets/5fb0406c-1e1d-4a21-b3c2-a542309ad8e0" />
+
+_Fig 11 Features of Merged Dataset_
+
+#### 6.3.	Missing Value
+
+Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
+
+<img width="282" height="901" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+
+Fig 12 List of Features with Missing Values
 
 
 
-
-
-
-
-
-
-
-
-### Data Preparation
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
