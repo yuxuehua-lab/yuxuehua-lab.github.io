@@ -13,7 +13,22 @@ Sephora was selected for this study for several reasons:
 -	Rich product ecosystem: Customers can choose from an extensive variety of products across multiple categories.
 -	Engagement ecosystem: Sephora promotes interaction through customer reviews, ratings, and social features such as “loves” and helpful votes, creating a wealth of data for analysis.
 
+## 2. Application Used
+Python and various libraries were used for this analysis.
 
+## 3.	Business Objective
+Our group aims to enhance Sephora’s customer satisfaction, uncover customer preferences, and drive product development decisions through data-driven analysis through four areas:
+-	**Product Optimization through Sentiment Analysis** – understanding how customers feel about products to guide development.
+-	**Identifying Bottom 20 Products via XGBoost** – spotting underperforming products for potential improvement.
+-	**Identifying Factors for High Engagement (loves_count) via XGBoost + SHAP** – uncovering drivers of product popularity.
+-	**Customer Segmentation via K-Means** – enabling personalized and targeted marketing strategies.Individual 
+
+## 4.	Individual Objective
+While Sephora possesses a vast customer base and rich datasets, effectively translating this data into actionable insights remains a challenge. The problem is to identify patterns and behaviors within the customer data that can inform targeted marketing strategies, personalized recommendations, and strategic product development.
+
+My individual goal is to identify distinct customer segments based on demographic characteristics, enabling more targeted marketing strategies that align with customer needs and support Sephora’s broader business goals
+
+   
 ## Work Accomplished
 Document your work done to accomplish the outcome
 
