@@ -67,7 +67,7 @@ _Fig 3 Reviews count for each product category_
 
 Most reviewers have light to fair skin, brown eyes, and brown or black hair, with a majority reporting combination skin type. These characteristics suggest that the dataset largely represents Asian customers. This insight is valuable for designing region-specific marketing campaigns and product promotions that align with this demographic profile.
 
-<img width="550" height="600" alt="image" src="https://github.com/user-attachments/assets/7c60e35b-2668-4523-961d-a7170cc2fb18" />
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/7c60e35b-2668-4523-961d-a7170cc2fb18" />
 
 _Fig 4 Customer Demographic_
 
@@ -79,7 +79,7 @@ In general, higher product ratings are associated with a stronger likelihood of 
 
 This suggests that a 3-star rating often reflects a neutral stance, highlighting an opportunity for Sephora to investigate and improve customer satisfaction for “average” products
 
-<img width="550" height="552" alt="image" src="https://github.com/user-attachments/assets/e7b3c640-448c-47fa-a9cf-5b7c532d16c7" />
+<img width="700" height="552" alt="image" src="https://github.com/user-attachments/assets/e7b3c640-448c-47fa-a9cf-5b7c532d16c7" />
 
 _Fig 5 Positive Correlation between Recommend and Rating_
 
@@ -87,7 +87,7 @@ _Fig 5 Positive Correlation between Recommend and Rating_
 
 Based on the price distribution, most reviewed products fall within the lower price tier, primarily under $100. Higher-priced (i.e., prestige products) receive fewer reviews, possibly due to a smaller customer base for these premium items
 
-<img width="550" height="532" alt="image" src="https://github.com/user-attachments/assets/4b244b38-13a9-4a61-b74c-9f2c5d46922b" />
+<img width="7000" height="532" alt="image" src="https://github.com/user-attachments/assets/4b244b38-13a9-4a61-b74c-9f2c5d46922b" />
 
 _Fig 6 Most reviewed products fall within the lower price tier_
 
@@ -95,8 +95,8 @@ _Fig 6 Most reviewed products fall within the lower price tier_
 
 The Product Dataset contains details on the product offering by Sephora. The features are outlined in Fig 7: Data Dictionary of Product Dataset.
 
-<img width="550" height="638" alt="image" src="https://github.com/user-attachments/assets/3aaf9a69-e727-4814-bc57-074ae147918d" />
-<img width="550" height="638" alt="image" src="https://github.com/user-attachments/assets/362dfc71-3be5-4fa0-9155-229ea311316c" />
+<img width="700" height="638" alt="image" src="https://github.com/user-attachments/assets/3aaf9a69-e727-4814-bc57-074ae147918d" />
+<img width="7000" height="638" alt="image" src="https://github.com/user-attachments/assets/362dfc71-3be5-4fa0-9155-229ea311316c" />
 
 _Fig 7 Data Dictionary of Product Dataset_
 
