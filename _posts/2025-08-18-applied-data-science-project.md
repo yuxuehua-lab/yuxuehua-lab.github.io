@@ -187,7 +187,7 @@ Missing values were observed across various product categories for the ingredien
 
 During analysis of product categories, it was observed that the tertiary category was often insufficiently detailed. For example, Self Tanner products had vague tertiary labels such as “For Body” or “For Face,” which provided little distinction between product types.
 
-<img width="540" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
+<img width="350" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
 
 _Fig 13 Vague tertiary labels_
 
@@ -202,6 +202,24 @@ After these adjustments, the original primary, secondary, and tertiary category 
 The original skin tone feature contained a large number of categories, which could reduce the effectiveness of clustering. To simplify the data and improve segmentation, similar skin tone labels were reclassified into broader groups. Specifically, "fairLight", "light", and "porcelain" were grouped as "fair"; "lightMedium" and "mediumTan" were grouped as "medium"; and "deep", "olive", "rich", and "dark" were grouped as "tan". This consolidation reduced sparsity across categories, making the feature more suitable for K-Means clustering while still preserving meaningful demographic distinctions.
 
 <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/2fba1db1-500d-4bc3-b076-1b79ae641d9e" />
+
+##### 6.4.3.	Standardize Size Measurement
+
+The dataset contains product sizes expressed in different units, including "ml", "g", "oz", and "fl oz", “ounce” etc.  To ensure consistency across products, all measurements were converted to milliliters (ml). 
+
+Subsequently, a unit price per ml was calculated by dividing the product’s selling price by its size in milliliters. This standardization allows for meaningful comparisons of price across products of different sizes and ensures that size-related features are appropriately scaled for clustering and analysis.
+
+<img width="350" height="344" alt="image" src="https://github.com/user-attachments/assets/8b4e14c9-4d9b-4646-8c0b-8c99f16f98d8" />
+
+Fig 14 Extract of top 10 products
+
+##### 6.4.4.	First Draft of Dataset After Cleaning
+
+ <img width="350" height="550" alt="image" src="https://github.com/user-attachments/assets/5d8e6c52-c54c-4288-a51b-cc4730a563d0" />
+
+_Fig 15  Dataset after data preparation_
+
+
 
 
 
