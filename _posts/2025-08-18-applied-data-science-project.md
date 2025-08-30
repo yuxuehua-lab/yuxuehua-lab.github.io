@@ -151,7 +151,7 @@ total_feedback_count, total_neg_feedback_count, and total_pos_feedback_count   |
 review_text, review_title, reviews, and avg_rating                             | Dropped to retain only the rating from individual reviewers.
 Time-related columns (submission_time, submission_year, submission_month, submission_quarter) | Excluded as temporal analysis is beyond the scope of this project
 
-<img width="550" height="650" alt="image" src="https://github.com/user-attachments/assets/5fb0406c-1e1d-4a21-b3c2-a542309ad8e0" />
+<img width="450" height="650" alt="image" src="https://github.com/user-attachments/assets/5fb0406c-1e1d-4a21-b3c2-a542309ad8e0" />
 
 _Fig 11 Features of Merged Dataset_
 
@@ -159,9 +159,53 @@ _Fig 11 Features of Merged Dataset_
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
-<img width="282" height="901" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+<img width="150" height="901" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
 
 Fig 12 List of Features with Missing Values
+
+##### 6.3.1.	Helpfulness 
+
+For the helpfulness feature, defined as the ratio of total_pos_feedback_count to total_feedback_count, NaN values arose when no feedback was provided. These were replaced with 0 to indicate the absence of feedback.
+
+##### 6.3.2.	Skin Tone and Skin Type
+
+Missing values were also found in skin type (~1.6%) and skin tone (~4.0%). Since these are critical demographic characteristics for skincare analysis, reviews lacking this information were removed to preserve the integrity of the clustering results.
+
+##### 6.3.3.	Eye Color and Hair Color
+
+In contrast, eye color and hair color were considered less relevant for skincare-focused analysis and were therefore dropped entirely.
+
+##### 6.3.4.	Size, Variation Type, Variation Value, Variation Desc, Child count
+For product-related attributes, missing size values were replaced with “Not Found” to indicate unavailable information, while missing variation type values were filled with “Not Applicable” in cases where no product variations existed (i.e., child_count = 0). Finally, redundant fields such as variation value and variation description were removed to avoid duplication.
+
+#### 6.3.5.	Ingredients and Highlights
+Missing values were observed across various product categories for the ingredients and highlights features. Due to the inconsistent coverage of these fields, it was not possible to identify common patterns or association rules. To handle these missing entries, all null values were replaced with “Not Found” to indicate unavailable information, ensuring that the dataset remained complete and consistent for further analysis.
+
+#### 6.4.	Feature Engineering
+
+##### 6.4.1.	Product Category
+
+During analysis of product categories, it was observed that the tertiary category was often insufficiently detailed. For example, Self Tanner products had vague tertiary labels such as “For Body” or “For Face,” which provided little distinction between product types.
+
+<img width="540" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
+
+_Fig 13 Vague tertiary labels_
+
+To address this, the secondary and tertiary categories were combined to create more specific distinctions between products. 
+
+Additionally, products with unclear or underpopulated categories were reclassified when appropriate; for instance, a product listed under “Shop by Concern” was reclassified under “Masks – Face Masks” to better reflect its function. 
+
+After these adjustments, the original primary, secondary, and tertiary category columns were dropped from the dataset, as the refined categorization provided a more meaningful representation for analysis.
+
+##### 6.4.2.	Skin Tone
+
+The original skin tone feature contained a large number of categories, which could reduce the effectiveness of clustering. To simplify the data and improve segmentation, similar skin tone labels were reclassified into broader groups. Specifically, "fairLight", "light", and "porcelain" were grouped as "fair"; "lightMedium" and "mediumTan" were grouped as "medium"; and "deep", "olive", "rich", and "dark" were grouped as "tan". This consolidation reduced sparsity across categories, making the feature more suitable for K-Means clustering while still preserving meaningful demographic distinctions.
+
+<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/2fba1db1-500d-4bc3-b076-1b79ae641d9e" />
+
+
+
+
 
 
 
