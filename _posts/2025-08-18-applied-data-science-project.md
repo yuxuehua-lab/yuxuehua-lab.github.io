@@ -219,6 +219,17 @@ Fig 14 Extract of top 10 products
 
 _Fig 15  Dataset after data preparation_
 
+## 7. Model Design and Assessment
+
+#### 7.1.	Model Selection – K Means Clustering Model
+
+The selection of the model was guided by three key criteria: the project objective, the size of the dataset, and the types of features available. The goal of this analysis is to identify distinct customer segments using unlabelled data, with a dataset containing over 380,000 reviews from 2021 and 2022. The dataset includes a mix of continuous, binary, and categorical features, which informed the choice of a suitable clustering algorithm.
+
+<img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/e4f570b2-dfd7-4aed-9bc3-8042b0504365" />
+
+_Fig 16  Model Selection Criteria_
+
+
 
 
 
