@@ -29,7 +29,8 @@ While Sephora possesses a vast customer base and rich datasets, effectively tran
 My individual goal is to identify distinct customer segments based on demographic characteristics, enabling more targeted marketing strategies that align with customer needs and support Sephora’s broader business goals
 
 ## 5.	Data Exploratory
-**#### 5.1.	Datasets**
+#### **5.1.	Datasets**
+
 We have selected two comprehensive datasets from Kaggle:
 -	**Products dataset** which contains product details such as brand name, size, stock availability etc for more than 8000 products offered by Sephora
 -	**Reviews dataset** which contains more than 1 million reviews on 2000 products from year 2008 to year 2023
@@ -46,7 +47,7 @@ Reviews | 1M+ customer reviews on 2,000 products | 1M+ rows refined to 394k rows
 
 ###### _Fig 1: Number of reviews by year and quarter. The data from 2023 is excluded as it is incomplete._
 
-**#### 5.2.	Review Dataset**
+#### **5.2.	Review Dataset**
 The Review Dataset contains customer feedback on Sephora skincare products. The features are outlined in Fig 2: Data Dictionary of Review Dataset.
 
 <img width="550" height="360" alt="image" src="https://github.com/user-attachments/assets/d4948ab4-2cfb-40f7-9110-5a45615c0d1d" />
@@ -91,7 +92,7 @@ Based on the price distribution, most reviewed products fall within the lower pr
 
 ###### _Fig 6 Most reviewed products fall within the lower price tier_
 
-**#### 5.3.	Product Dataset**
+#### **5.3.	Product Dataset**
 
 The Product Dataset contains details on the product offering by Sephora. The features are outlined in Fig 7: Data Dictionary of Product Dataset.
 
@@ -136,11 +137,11 @@ A significant outlier was identified: a product priced above USD 1,750, which wa
 
 For my analysis, the Review Dataset was used as the primary dataset, while the Product Dataset was integrated as a secondary source to enrich the customer-level information
 
-**#### 6.1.	Merging of Dataset**
+#### **6.1.	Merging of Dataset**
 
 A left join was performed on the two datasets using the unique product_id as the key. This ensured that all customer reviews were retained while incorporating additional product attributes such as product category, price, and size. Duplicate columns that appeared in both datasets (e.g., brand_name, brand_id) were removed to avoid redundancy.
 
-**#### 6.2.	Removal of Unnecessary Features**
+#### **6.2.	Removal of Unnecessary Features**
 
 Since the focus of this study is on customer demographics and product preferences, several features were removed to streamline the dataset
 
@@ -155,7 +156,7 @@ Time-related columns (submission_time, submission_year, submission_month, submis
 
 ###### _Fig 11 Features of Merged Dataset_
 
-**#### 6.3.	Missing Value**
+#### **6.3.	Missing Value**
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
@@ -181,7 +182,7 @@ For product-related attributes, missing size values were replaced with “Not Fo
 ##### 6.3.5.	Ingredients and Highlights
 Missing values were observed across various product categories for the ingredients and highlights features. Due to the inconsistent coverage of these fields, it was not possible to identify common patterns or association rules. To handle these missing entries, all null values were replaced with “Not Found” to indicate unavailable information, ensuring that the dataset remained complete and consistent for further analysis.
 
-**#### 6.4.	Feature Engineering**
+#### **6.4.	Feature Engineering**
 
 ##### 6.4.1.	Product Category
 
@@ -221,7 +222,7 @@ Subsequently, a unit price per ml was calculated by dividing the product’s sel
 
 ## 7. Model Design and Assessment
 
-**#### 7.1.	Model Selection – K Means Clustering Model**
+#### **7.1.	Model Selection – K Means Clustering Model**
 
 The selection of the model was guided by three key criteria: the project objective, the size of the dataset, and the types of features available. The goal of this analysis is to identify distinct customer segments using unlabelled data, with a dataset containing over 380,000 reviews from 2021 and 2022. The dataset includes a mix of continuous, binary, and categorical features, which informed the choice of a suitable clustering algorithm.
 
@@ -251,7 +252,7 @@ The model is easy to understand and explain: each customer is assigned to one of
 
 The resulting clusters provide clear, actionable groups that can inform targeted marketing, personalization strategies, and broader busine
 
-**#### 7.2.	Data scaling & preprocessing for K-Means**
+#### **7.2.	Data scaling & preprocessing for K-Means**
 
 Before applying K-Means clustering, the dataset was preprocessed to ensure that all features were in a format suitable for distance-based clustering. The algorithm relies on Euclidean distance, which can be disproportionately influenced by features with larger scales or inconsistent encodings. To address this, several steps were performed:
 
@@ -263,7 +264,7 @@ Categorical attributes such as skin type and skin tone were transformed into num
 
 Continuous features such as price per ml, rating, and helpfulness were standardized using z-score normalization. This ensured that all features had a mean of 0 and a standard deviation of 1, preventing features with larger numerical ranges (e.g., price) from dominating the distance calculations.
 
-**### 7.3 Modelling and Parameter Modelling**
+### **7.3 Modelling and Parameter Modelling**
 
 #### 7.3.1.	First Model Attempt – Full Features 
 
@@ -312,7 +313,7 @@ Insights generated would therefore be diluted and less actionable for targeted m
 
 To overcome these issues, the dataset was aggregated to the customer level.
 
-<img width="700" height="650" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
+<img width="700" height="550" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
 
 This approach summarized customer behaviour by consolidating purchase and engagement patterns to better capture overall preferences. It also removed duplication and thus ensured that each customer is represented by a single row, creating a dataset suitable for clustering.
 
@@ -320,7 +321,7 @@ This aggregation ensured that the K-Means model clusters were focused on custome
 
 ## 8. Evaluation - Optimal number of clusters
 
-#### 8.1.	PCA
+#### **8.1.	PCA**
 
 PCA was again performed on the aggregated dataset to reduce dimensionality prior to clustering. The results showed that only 8 to 9 components were required to explain 80–90% of the total variance which was a significant improvement compared to the first and second models, which required 37–40 and 10–12 components respectively.
 
@@ -330,7 +331,7 @@ PCA was again performed on the aggregated dataset to reduce dimensionality prior
 
 This reduction in dimensionality indicates that there is stronger feature representation with more informative variables driving the clustering and reduced noise leading to clearer and more robust segmentation outcomes.
 
-#### 8.2.	Elbow Graph
+#### **8.2.	Elbow Graph**
 
 The Elbow Method was applied, however, the resulting curve appeared relatively straight with no distinct inflection point, making it difficult to determine an optimal number of clusters.
 
@@ -340,7 +341,7 @@ The Elbow Method was applied, however, the resulting curve appeared relatively s
 
 This outcome suggests that the dataset may not exhibit strong, naturally separable cluster structures. As a result, the Elbow Method alone is insufficient for selecting k in this case, and complementary approaches are required to guide the choice of the optimal number of clusters.
 
-#### 8.3.	Silhouette method
+#### **8.3.	Silhouette method**
 
 The Silhouette Method was applied to evaluate clustering performance and identify the optimal number of k clusters. Since the objective is customer segmentation, the number of clusters was capped at fewer than six to avoid excessive fragmentation and diluted customer profiling.
 
@@ -369,31 +370,31 @@ This distribution shows that clusters vary considerably in size, with Cluster 1 
 
 ###### _Fig 23 Characteristic Distribution of 5 Clusters_
 
-**#### 9.1.	Cluster 0 - Luxury Mini buyers**
+#### **9.1.	Cluster 0 - Luxury Mini buyers**
 
 Customers in Cluster 0 are characterized by high spending per product, yet they tend to purchase smaller-sized items, such as travel-size or luxury minis. This suggests that these customers are drawn to premium small-format products, possibly for trial purposes or as collectible luxury minis. 
 
 From a marketing perspective, this cluster can be targeted with mini sets, luxury trial kits, and gift sets, emphasizing exclusivity and premium quality. Personalized recommendations that highlight limited-edition or collectible items are likely to resonate with this group and encourage engagement and repeat purchases.
 
-**#### 9.2.	Cluster 1 - Bargain hunters / Value-Driven Reviewers**
+#### **9.2.	Cluster 1 - Bargain hunters / Value-Driven Reviewers**
 
 Customers in Cluster 1 are value-driven shoppers who tend to purchase larger-sized products at lower unit prices. They also exhibit the highest helpfulness scores, indicating that they are more critical and detailed reviewers. This segment often prefers limited-edition products but seeks good value, suggesting a focus on mainstream items rather than premium luxury products. 
 
 From a marketing perspective, these customers can be targeted with discounts, value sets, loyalty rewards, and flash sales, which appeal to their price-conscious behaviour while encouraging engagement and repeat purchases.
 
-**#### 9.3.	Cluster 2 - Highly engaged reviewers / social influencer**
+#### **9.3.	Cluster 2 - Highly engaged reviewers / social influencer**
 
 Customers in Cluster 2 are highly engaged shoppers who exhibit the highest loves count along with high helpfulness scores, indicating that they are both passionate about products and influential through their reviews. They typically purchase mid-sized products at lower unit prices, but also engage with mid- to high-range items, reflecting a willingness to invest in quality or premium products. This cluster shows a strong preference for Sephora-exclusive products, suggesting that these customers are drawn to unique and limited offerings.
 
 Marketing strategies for this segment could include early access programs, exclusive product drops, and insider clubs, leveraging their engagement to drive buzz, brand advocacy, and repeat purchases.
 
-**#### 9.4.	Cluster 3 – Online Shopper**
+#### **9.4.	Cluster 3 – Online Shopper**
 
 Customers in Cluster 3 are primarily online-only shoppers who show high engagement with online purchases. They tend to give high product ratings but have low helpfulness scores, indicating that while they enjoy the products, they are less likely to write detailed or influential reviews. This segment typically purchases mid-sized products at mid-to-low price points, reflecting mainstream purchasing behavior.
 
 Marketing strategies for this group should focus on digital campaigns, online-only product launches, and app-exclusive offers, catering to their preference for convenient online shopping while encouraging repeat purchases through targeted digital promotions.
 
-**#### 9.5.	Cluster 4 – Trendsetters / New-Product Enthusiasts**
+#### **9.5.	Cluster 4 – Trendsetters / New-Product Enthusiasts**
 
 Customers in Cluster 4 are trend-driven shoppers who show a strong preference for new and limited-edition products. They typically give high ratings and have moderate helpfulness scores, indicating they enjoy the products but provide only some review feedback. This segment tends to purchase larger-sized products at lower prices, reflecting a focus on value for money while staying ahead of trends. 
 
