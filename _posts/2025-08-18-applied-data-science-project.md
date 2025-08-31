@@ -401,7 +401,7 @@ Customers in Cluster 4 are trend-driven shoppers who show a strong preference fo
 
 Marketing strategies for this cluster should emphasize early-launch campaigns, influencer collaborations, and TikTok-driven promotions, leveraging their enthusiasm for new releases and exclusive products to drive engagement and brand visibility.
 
-## 10. Conclusion
+## **10. Conclusion**
 
 This analysis aimed to identify distinct customer segments to enable more targeted and effective marketing strategies for Sephora. While challenges such as weak clustering metrics (Elbow and Silhouette methods) suggest that customer preferences may overlap, the study successfully produced meaningful and actionable segmentation.
 
@@ -415,10 +415,39 @@ Cluster    | Key Characteristic | Marketing Recommendations
 **3: Online Shoppers** | Online-only buyers; high ratings but low helpfulness; mid-size, mid-low price products | Focus on digital campaigns, online-only launches, app-exclusive offers; encourage repeat online purchases
 **4: Trendsetters / New-Product Enthusiasts** | Prefer new and limited-edition products; high ratings; mid helpfulness; large size, low price | Launch early-release campaigns, influencer collaborations, TikTok-driven promotions; capitalize on trend-driven behavior
 
-## AI Ethics
-Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
+## **11. AI Ethics**
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+The following potential data science ethical issues were identified in this analysis:
+
+**1. Privacy**
+
+The analysis uses customer reviews and product engagement data. Even though the dataset is anonymized, there is a responsibility to ensure that individual customer identities are not exposed.
+
+Any future integration with demographic or transactional data must comply with data privacy laws (e.g., PDPA and GDPR) to prevent misuse of personal information.
+
+**2. Fairness**
+
+The dataset primarily represents Asian women customers and skincare products, which could introduce bias in segmentation results.
+Marketing strategies based on these clusters may inadvertently Favor certain groups over others, potentially leading to unintended discrimination or exclusion of other demographics.
+
+**3. Accuracy**
+
+The segmentation relies on clustering models (K-Means) that assume equal variance and spherical clusters, which may not perfectly capture all customer behaviors.
+
+Low silhouette scores indicate cluster overlap, which could lead to inaccurate targeting if the insights are used without caution.
+
+**4. Accountability**
+
+Analysts and decision-makers must take responsibility for how the cluster insights are applied in marketing. Misuse of segments (e.g., targeting based on biased assumptions) could harm customers or the brand.
+
+**5. Transparency**
+
+The clustering process and feature selection should be clearly documented so that stakeholders understand how decisions are derived from the data.
+Transparency is important to maintain trust with customers and internal teams, especially when data-driven insights guide marketing strategies.
+
+**6. Summary**
+
+While this analysis provides actionable insights for Sephora, careful attention to privacy, fairness, accuracy, accountability, and transparency is essential to ensure ethical use of customer data. Future work should include ethical review procedures, bias mitigation, and clear documentation before deploying any targeted marketing strategies.
 
 ## Source Codes and Datasets
 Upload your model files and dataset into a GitHub repo and add the link here. 
