@@ -4,7 +4,7 @@ author: Hua Yu Xue
 title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
-## 1. Project Background
+## **1. Project Background**
 Sephora is a global leader in the beauty retail industry, offering thousands of products across categories such as skincare, haircare, and cosmetics. With over 2,700 stores in 35 countries and more than 500 stores across the Americas, alongside a world-class e-commerce platform, Sephora serves millions of customers worldwide.
 
 Sephora was selected for this study for several reasons:
@@ -13,22 +13,22 @@ Sephora was selected for this study for several reasons:
 -	Rich product ecosystem: Customers can choose from an extensive variety of products across multiple categories.
 -	Engagement ecosystem: Sephora promotes interaction through customer reviews, ratings, and social features such as “loves” and helpful votes, creating a wealth of data for analysis.
 
-## 2. Application Used
+## **2. Application Used**
 Python and various libraries were used for this analysis.
 
-## 3.	Business Objective
+## **3.	Business Objective**
 Our group aims to enhance Sephora’s customer satisfaction, uncover customer preferences, and drive product development decisions through data-driven analysis through four areas:
 -	**Product Optimization through Sentiment Analysis** – understanding how customers feel about products to guide development.
 -	**Identifying Bottom 20 Products via XGBoost** – spotting underperforming products for potential improvement.
 -	**Identifying Factors for High Engagement (loves_count) via XGBoost + SHAP** – uncovering drivers of product popularity.
 -	**Customer Segmentation via K-Means** – enabling personalized and targeted marketing strategies.Individual 
 
-## 4.	Individual Objective
+## **4.	Individual Objective**
 While Sephora possesses a vast customer base and rich datasets, effectively translating this data into actionable insights remains a challenge. The problem is to identify patterns and behaviors within the customer data that can inform targeted marketing strategies, personalized recommendations, and strategic product development.
 
 My individual goal is to identify distinct customer segments based on demographic characteristics, enabling more targeted marketing strategies that align with customer needs and support Sephora’s broader business goals
 
-## 5.	Data Exploratory
+## **5.	Data Exploratory**
 #### **5.1.	Datasets**
 
 We have selected two comprehensive datasets from Kaggle:
@@ -57,7 +57,7 @@ The Review Dataset contains customer feedback on Sephora skincare products. The 
 
 The key exploratory findings are summarized as follows:
 
-##### 5.2.1.	Focus on Skincare Category
+##### **5.2.1.	Focus on Skincare Category**
 
 The dataset contains reviews exclusively from the skincare category, with treatments, moisturizers, and cleansers being the most frequently reviewed product types.
 
@@ -65,7 +65,7 @@ The dataset contains reviews exclusively from the skincare category, with treatm
 
 ###### _Fig 3 Reviews count for each product category_
 
-##### 5.2.2. Predominantly Asian Customer Base
+##### **5.2.2. Predominantly Asian Customer Base**
 
 Most reviewers have light to fair skin, brown eyes, and brown or black hair, with a majority reporting combination skin type. These characteristics suggest that the dataset largely represents Asian customers. This insight is valuable for designing region-specific marketing campaigns and product promotions that align with this demographic profile.
 
@@ -73,7 +73,7 @@ Most reviewers have light to fair skin, brown eyes, and brown or black hair, wit
 
 ###### _Fig 4 Customer Demographic_
 
-##### 5.2.3. Positive Correlation Between Rating and Recommendation
+##### **5.2.3. Positive Correlation Between Rating and Recommendation**
 
 In general, higher product ratings are associated with a stronger likelihood of recommendation.
 -	Products rated 4 or 5 stars are highly recommended.
@@ -85,7 +85,7 @@ This suggests that a 3-star rating often reflects a neutral stance, highlighting
 
 ###### _Fig 5 Positive Correlation between Recommend and Rating_
 
-##### 5.2.4. Price Tier Analysis
+##### **5.2.4. Price Tier Analysis**
 
 Based on the price distribution, most reviewed products fall within the lower price tier, primarily under $100. Higher-priced (i.e., prestige products) receive fewer reviews, possibly due to a smaller customer base for these premium items
 
@@ -104,7 +104,7 @@ The Product Dataset contains details on the product offering by Sephora. The fea
 
 The key exploratory findings are summarized as follows:
 
-##### 5.3.1.	Product Distribution
+##### **5.3.1.	Product Distribution**
 
 Most products fall into major categories such as Skincare, Makeup, Hair, Fragrance, and Bath & Body, which primarily target women. Smaller but notable groups include Mini Size, Men, Tools & Brushes, and Gifts, which represent more niche markets.
 
@@ -112,7 +112,7 @@ Most products fall into major categories such as Skincare, Makeup, Hair, Fragran
 
 ###### _Fig 8 Product Distribution_
 
-##### 5.3.2.	Product Popularity and Customer Engagement
+##### **5.3.2.	Product Popularity and Customer Engagement**
 
 Products with high loves counts tend to cluster around an average rating of 4.5, suggesting they are both popular and well-liked. Products with low loves counts but high ratings (>4.5) may represent new, niche, or underexposed items with untapped growth potential.
 
@@ -122,7 +122,7 @@ Ratings between 4.0–5.0 are generally associated with higher review volumes, i
 
 ###### _Fig 9 Product Popularity and Customer Engagement_
 
-##### 5.3.3.	Price and Customer Engagement
+##### **5.3.3.	Price and Customer Engagement**
 
 Ratings between 4.0–4.5 are most common in the price band just below USD 250, suggesting this range reflects a balance between affordability and high quality.
 
@@ -134,7 +134,7 @@ A significant outlier was identified: a product priced above USD 1,750, which wa
 
 ###### _Fig 10 Price and Customer Engagement_
 
-## 6. Data Preparation
+## **6. Data Preparation**
 
 For my analysis, the Review Dataset was used as the primary dataset, while the Product Dataset was integrated as a secondary source to enrich the customer-level information
 
@@ -165,27 +165,27 @@ Several steps were taken to address missing values in the dataset to ensure data
 
 ###### _Fig 12 List of Features with Missing Values_
 
-##### 6.3.1.	Helpfulness 
+##### **6.3.1.	Helpfulness** 
 
 For the helpfulness feature, defined as the ratio of total_pos_feedback_count to total_feedback_count, NaN values arose when no feedback was provided. These were replaced with 0 to indicate the absence of feedback.
 
-##### 6.3.2.	Skin Tone and Skin Type
+##### **6.3.2.	Skin Tone and Skin Type**
 
 Missing values were also found in skin type (~1.6%) and skin tone (~4.0%). Since these are critical demographic characteristics for skincare analysis, reviews lacking this information were removed to preserve the integrity of the clustering results.
 
-##### 6.3.3.	Eye Color and Hair Color
+##### **6.3.3.	Eye Color and Hair Color**
 
 In contrast, eye color and hair color were considered less relevant for skincare-focused analysis and were therefore dropped entirely.
 
-##### 6.3.4.	Size, Variation Type, Variation Value, Variation Desc, Child count
+##### **6.3.4.	Size, Variation Type, Variation Value, Variation Desc, Child count**
 For product-related attributes, missing size values were replaced with “Not Found” to indicate unavailable information, while missing variation type values were filled with “Not Applicable” in cases where no product variations existed (i.e., child_count = 0). Finally, redundant fields such as variation value and variation description were removed to avoid duplication.
 
-##### 6.3.5.	Ingredients and Highlights
+##### **6.3.5.	Ingredients and Highlights**
 Missing values were observed across various product categories for the ingredients and highlights features. Due to the inconsistent coverage of these fields, it was not possible to identify common patterns or association rules. To handle these missing entries, all null values were replaced with “Not Found” to indicate unavailable information, ensuring that the dataset remained complete and consistent for further analysis.
 
 #### **6.4.	Feature Engineering**
 
-##### 6.4.1.	Product Category
+##### **6.4.1.	Product Category**
 
 During analysis of product categories, it was observed that the tertiary category was often insufficiently detailed. For example, Self Tanner products had vague tertiary labels such as “For Body” or “For Face,” which provided little distinction between product types.
 
@@ -199,13 +199,13 @@ Additionally, products with unclear or underpopulated categories were reclassifi
 
 After these adjustments, the original primary, secondary, and tertiary category columns were dropped from the dataset, as the refined categorization provided a more meaningful representation for analysis.
 
-##### 6.4.2.	Skin Tone
+##### **6.4.2.	Skin Tone**
 
 The original skin tone feature contained a large number of categories, which could reduce the effectiveness of clustering. To simplify the data and improve segmentation, similar skin tone labels were reclassified into broader groups. Specifically, "fairLight", "light", and "porcelain" were grouped as "fair"; "lightMedium" and "mediumTan" were grouped as "medium"; and "deep", "olive", "rich", and "dark" were grouped as "tan". This consolidation reduced sparsity across categories, making the feature more suitable for K-Means clustering while still preserving meaningful demographic distinctions.
 
 <img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/2fba1db1-500d-4bc3-b076-1b79ae641d9e" />
 
-##### 6.4.3.	Standardize Size Measurement
+##### **6.4.3.	Standardize Size Measurement**
 
 The dataset contains product sizes expressed in different units, including "ml", "g", "oz", and "fl oz", “ounce” etc.  To ensure consistency across products, all measurements were converted to milliliters (ml). 
 
@@ -215,7 +215,7 @@ Subsequently, a unit price per ml was calculated by dividing the product’s sel
 
 ###### _Fig 14 Extract of top 10 products_
 
-##### 6.4.4.	First Draft of Dataset After Cleaning
+##### **6.4.4.	First Draft of Dataset After Cleaning**
 
  <img width="350" height="550" alt="image" src="https://github.com/user-attachments/assets/5d8e6c52-c54c-4288-a51b-cc4730a563d0" />
 
@@ -257,17 +257,17 @@ The resulting clusters provide clear, actionable groups that can inform targeted
 
 Before applying K-Means clustering, the dataset was preprocessed to ensure that all features were in a format suitable for distance-based clustering. The algorithm relies on Euclidean distance, which can be disproportionately influenced by features with larger scales or inconsistent encodings. To address this, several steps were performed:
 
-##### 7.2.1.	Encoding of Categorical Variables
+##### **7.2.1.	Encoding of Categorical Variables**
 
 Categorical attributes such as skin type and skin tone were transformed into numerical representations through one-hot encoding. This allowed the clustering algorithm to interpret categorical differences without introducing artificial ordinal relationships.
 
-##### 7.2.2.	Standardization of Continuous Features
+##### **7.2.2.	Standardization of Continuous Features**
 
 Continuous features such as price per ml, rating, and helpfulness were standardized using z-score normalization. This ensured that all features had a mean of 0 and a standard deviation of 1, preventing features with larger numerical ranges (e.g., price) from dominating the distance calculations.
 
 ### **7.3 Modelling and Parameter Modelling**
 
-#### 7.3.1.	First Model Attempt – Full Features 
+#### **7.3.1.	First Model Attempt – Full Features **
 
 The first K-Means clustering model was built using the full set of features without dimensionality reduction. However, several issues were encountered during this stage. The model was computationally intensive and crashed multiple times due to the high dimensionality of the dataset.
 
@@ -275,7 +275,7 @@ An analysis of the variance structure using Principal Component Analysis (PCA) s
 
 The elbow graph generated from this model was nearly a straight line, further confirming the lack of strong natural clusters in the unprocessed, high-dimensional feature space. These findings suggested that feature reduction or selection would be necessary to improve clustering performance and achieve more interpretable customer segments.
 
-#### 7.3.2.	Second Model Attempt – Refined Features
+#### **7.3.2.	Second Model Attempt – Refined Features**
 
 After observing the limitations of the first model, a second K-Means clustering model was built using a refined set of features focused on customer-centric variables. The feature set was structured into three main categories:
 
@@ -297,7 +297,7 @@ However, the elbow method still produced a relatively straight graph, suggesting
 
 ###### _Fig 18 Elbow Graph for Second Model_
 
-#### 7.3.3.	Third Model Attempt – Aggregation
+#### **7.3.3.	Third Model Attempt – Aggregation**
 
 The third model was developed using refined features combined with an aggregation strategy to better align with the project’s objective of customer segmentation.
 
@@ -414,12 +414,6 @@ Cluster    | Key Characteristic | Marketing Recommendations
 **2: Highly Engaged Reviewers / Social Influencers** | High loves count and helpfulness; mid-size products; prefer Sephora exclusives; engage with mid-to-high range items | Implement early access programs, exclusive drops, insider clubs; leverage engagement for advocacy
 **3: Online Shoppers** | Online-only buyers; high ratings but low helpfulness; mid-size, mid-low price products | Focus on digital campaigns, online-only launches, app-exclusive offers; encourage repeat online purchases
 **4: Trendsetters / New-Product Enthusiasts** | Prefer new and limited-edition products; high ratings; mid helpfulness; large size, low price | Launch early-release campaigns, influencer collaborations, TikTok-driven promotions; capitalize on trend-driven behavior
-
-
-
-
-
-
 
 ## AI Ethics
 Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
