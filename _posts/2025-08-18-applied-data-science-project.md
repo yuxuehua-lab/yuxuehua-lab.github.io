@@ -460,7 +460,5 @@ While this analysis provides actionable insights for Sephora, careful attention 
 
 ## Source Codes and Datasets
 
-ITD214_Sephora_Data_Preparation.ipynb
-
-ITD214_Sephora_Clustering_v4.ipynb
+https://github.com/yuxuehua-lab/itd214_proj
 
