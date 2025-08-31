@@ -229,26 +229,158 @@ The selection of the model was guided by three key criteria: the project objecti
 
 _Fig 16  Model Selection Criteria_
 
+### Modelling and Parameter Modelling
+
+#### 7.3.1.	First Model Attempt – Full Features 
+
+The first K-Means clustering model was built using the full set of features without dimensionality reduction. However, several issues were encountered during this stage. The model was computationally intensive and crashed multiple times due to the high dimensionality of the dataset.
+An analysis of the variance structure using Principal Component Analysis (PCA) showed that between 37 and 40 components were required to explain just 80% of the total variance. This indicated that the dataset contained a large number of weakly correlated features, making it difficult for K-Means to identify clear cluster boundaries.
+
+The elbow graph generated from this model was nearly a straight line, further confirming the lack of strong natural clusters in the unprocessed, high-dimensional feature space. These findings suggested that feature reduction or selection would be necessary to improve clustering performance and achieve more interpretable customer segments.
+
+#### 7.3.2.	Second Model Attempt – Refined Features
+
+After observing the limitations of the first model, a second K-Means clustering model was built using a refined set of features focused on customer-centric variables. The feature set was structured into three main categories:
+
+-	Customer Characteristics: skin_tone, skin_type
+-	Customer Purchasing Behavior: unit_price, size_ml, online_only, limited_edition, new, sephora_exclusive
+-	Customer Engagement: rating, helpfulness, loves_count
+  
+This refined feature selection aimed to remove weakly correlated or redundant attributes and emphasize variables directly linked to customer profiles and behaviors.
+
+The refined model showed some improvement compared to the initial attempt. PCA revealed that only 10–12 components were required to explain 80–90% of the total variance, a significant reduction from the 37–40 components needed in the first model
+
+<img width="944" height="604" alt="image" src="https://github.com/user-attachments/assets/405923ac-2d09-4aca-96ba-616049dad600" />
+
+_Fig 17 Principal Component Analysis (PCA) for second Model_
+
+However, the elbow method still produced a relatively straight graph, suggesting that strong natural clustering tendencies remained limited in the dataset.
+
+<img width="703" height="562" alt="image" src="https://github.com/user-attachments/assets/262dfa90-d94b-4de5-a5c9-fa80e84ddee6" />
+
+_Fig 18 Elbow Graph for Second Model_
+
+#### 7.3.3.	Third Model Attempt – Aggregation
+
+The third model was developed using refined features combined with an aggregation strategy to better align with the project’s objective of customer segmentation.
+
+**1.	Reason for Aggregation**
+
+The original dataset was structured at the review–product level, where each row represents a review of a product by a customer. Using this structure directly for clustering presents several challenges:
+
+-	K-Means would cluster products/reviews rather than customers, resulting in product-centric rather than customer-centric insights.
+-	A single customer who reviewed multiple products could be assigned to different clusters, leading to fragmented and inconsistent profiling.
+  
+Insights generated would therefore be diluted and less actionable for targeted marketing.
+
+**2.	Aggregation Approach**
+
+To overcome these issues, the dataset was aggregated to the customer level.
+
+<img width="940" height="470" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
+
+This approach summarized customer behaviour by consolidating purchase and engagement patterns to better capture overall preferences. It also removed duplication and thus ensured that each customer is represented by a single row, creating a dataset suitable for clustering.
+
+This aggregation ensured that the K-Means model clusters were focused on customers rather than products, enabling meaningful segmentation for personalized marketing strategies
+
+#### 7.4.	Evaluation - Optimal number of clusters
+
+##### 7.4.1.	PCA
+
+PCA was again performed on the aggregated dataset to reduce dimensionality prior to clustering. The results showed that only 8 to 9 components were required to explain 80–90% of the total variance which was a significant improvement compared to the first and second models, which required 37–40 and 10–12 components respectively.
+
+<img width="944" height="606" alt="image" src="https://github.com/user-attachments/assets/09d010c8-ab58-4033-996b-9826d516f520" />
+
+_Fig 19 PCA for Third Model_
+
+This reduction in dimensionality indicates that there is stronger feature representation with more informative variables driving the clustering and reduced noise leading to clearer and more robust segmentation outcomes.
+
+##### 7.4.2.	Elbow Graph
+
+The Elbow Method was applied, however, the resulting curve appeared relatively straight with no distinct inflection point, making it difficult to determine an optimal number of clusters.
+
+<img width="860" height="584" alt="image" src="https://github.com/user-attachments/assets/f06b2096-822f-4f7d-a2ff-59041b551012" />
+
+_Fig 18 Elbow Graph for Second Model_
+
+This outcome suggests that the dataset may not exhibit strong, naturally separable cluster structures. As a result, the Elbow Method alone is insufficient for selecting k in this case, and complementary approaches are required to guide the choice of the optimal number of clusters.
+
+##### 7.4.3.	Silhouette method
+
+The Silhouette Method was applied to evaluate clustering performance and identify the optimal number of k clusters. Since the objective is customer segmentation, the number of clusters was capped at fewer than six to avoid excessive fragmentation and diluted customer profiling.
+
+The analysis revealed that the overall Silhouette scores were relatively low, suggesting that clusters have a degree of overlap. This indicates that customer behaviours are not sharply separable, likely due to customers shopping across multiple categories and exhibiting overlapping preferences.
+
+<img width="500" height="233" alt="image" src="https://github.com/user-attachments/assets/ca087695-62f1-4eed-baa8-f45f94b35554" />
+
+_Fig 21 Silhouette Score for Third Model_
+
+Among the tested values, 5 and 6 clusters yielded the highest Silhouette scores. Although 6 clusters achieved the best score of 0.240, the improvement over 5 clusters (0.229) was marginal. From a business perspective, 5 clusters were selected as the optimal solution, as this balance avoids over-segmentation while ensuring sufficient differentiation to support actionable marketing insights.
+
+## 8. Recommendation and Analysis
+
+The K-Means model was developed with 5 clusters, and the clusters were mapped back to the original dataset for customer profiling.
+The distribution of customers across clusters is as follows:
+
+<img width="209" height="365" alt="image" src="https://github.com/user-attachments/assets/4be37fbb-ca7c-4701-808c-fe1112817054" />
+
+_Fig 22 Distribution of 5 Clusters_
+
+This distribution shows that clusters vary considerably in size, with Cluster 1 and Cluster 3 representing the largest customer segments, while Cluster 4 represents a much smaller, niche group. Such imbalances are common in customer segmentation and often indicate the presence of both mass-market customer bases and smaller, specialized personas.
+
+<img width="944" height="947" alt="image" src="https://github.com/user-attachments/assets/290f0fe5-1cd0-48b3-9d57-7152c8c02e67" />
+
+_Fig 23 Characteristic Distribution of 5 Clusters_
+
+#### 8.1.1.	Cluster 0 - Luxury Mini buyers
+
+Customers in Cluster 0 are characterized by high spending per product, yet they tend to purchase smaller-sized items, such as travel-size or luxury minis. This suggests that these customers are drawn to premium small-format products, possibly for trial purposes or as collectible luxury minis. 
+
+From a marketing perspective, this cluster can be targeted with mini sets, luxury trial kits, and gift sets, emphasizing exclusivity and premium quality. Personalized recommendations that highlight limited-edition or collectible items are likely to resonate with this group and encourage engagement and repeat purchases.
+
+#### 8.1.2.	Cluster 1 - Bargain hunters / Value-Driven Reviewers
+
+Customers in Cluster 1 are value-driven shoppers who tend to purchase larger-sized products at lower unit prices. They also exhibit the highest helpfulness scores, indicating that they are more critical and detailed reviewers. This segment often prefers limited-edition products but seeks good value, suggesting a focus on mainstream items rather than premium luxury products. 
+
+From a marketing perspective, these customers can be targeted with discounts, value sets, loyalty rewards, and flash sales, which appeal to their price-conscious behaviour while encouraging engagement and repeat purchases.
+
+#### 8.1.3.	Cluster 2 - Highly engaged reviewers / social influencer
+
+Customers in Cluster 2 are highly engaged shoppers who exhibit the highest loves count along with high helpfulness scores, indicating that they are both passionate about products and influential through their reviews. They typically purchase mid-sized products at lower unit prices, but also engage with mid- to high-range items, reflecting a willingness to invest in quality or premium products. This cluster shows a strong preference for Sephora-exclusive products, suggesting that these customers are drawn to unique and limited offerings.
+
+Marketing strategies for this segment could include early access programs, exclusive product drops, and insider clubs, leveraging their engagement to drive buzz, brand advocacy, and repeat purchases.
+
+#### 8.1.4.	Cluster 3 – Online Shopper
+
+Customers in Cluster 3 are primarily online-only shoppers who show high engagement with online purchases. They tend to give high product ratings but have low helpfulness scores, indicating that while they enjoy the products, they are less likely to write detailed or influential reviews. This segment typically purchases mid-sized products at mid-to-low price points, reflecting mainstream purchasing behavior.
+
+Marketing strategies for this group should focus on digital campaigns, online-only product launches, and app-exclusive offers, catering to their preference for convenient online shopping while encouraging repeat purchases through targeted digital promotions.
+
+#### 8.1.5.	Cluster 4 – Trendsetters / New-Product Enthusiasts
+
+Customers in Cluster 4 are trend-driven shoppers who show a strong preference for new and limited-edition products. They typically give high ratings and have moderate helpfulness scores, indicating they enjoy the products but provide only some review feedback. This segment tends to purchase larger-sized products at lower prices, reflecting a focus on value for money while staying ahead of trends. 
+
+Marketing strategies for this cluster should emphasize early-launch campaigns, influencer collaborations, and TikTok-driven promotions, leveraging their enthusiasm for new releases and exclusive products to drive engagement and brand visibility.
+
+## 9. Conclusion
+
+This analysis aimed to identify distinct customer segments to enable more targeted and effective marketing strategies for Sephora. While challenges such as weak clustering metrics (Elbow and Silhouette methods) suggest that customer preferences may overlap, the study successfully produced meaningful and actionable segmentation.
+
+Using K-Means clustering on aggregated, customer-centric features, five customer segments were identified:
+
+Cluster    | Key Characteristic | Marketing Recommendations           
+--------------------- | --------------------- | --------------------- 
+**0: Luxury Mini Buyers** | High spending per product; purchase small/travel-size luxury items | Highlight mini sets, luxury trial kits, gift sets; emphasize exclusivity and premium quality
+**1: Bargain Hunters / Value-Driven Reviewers** | Large-size products at low unit price; highly helpful reviewers; prefer limited-edition items | Offer discounts, value sets, loyalty rewards, flash sales; appeal to price-conscious shoppers
+**2: Highly Engaged Reviewers / Social Influencers** | High loves count and helpfulness; mid-size products; prefer Sephora exclusives; engage with mid-to-high range items | Implement early access programs, exclusive drops, insider clubs; leverage engagement for advocacy
+**3: Online Shoppers** | Online-only buyers; high ratings but low helpfulness; mid-size, mid-low price products | Focus on digital campaigns, online-only launches, app-exclusive offers; encourage repeat online purchases
+**4: Trendsetters / New-Product Enthusiasts** | Prefer new and limited-edition products; high ratings; mid helpfulness; large size, low price | Launch early-release campaigns, influencer collaborations, TikTok-driven promotions; capitalize on trend-driven behavior
 
 
 
 
 
 
-
-
-
-
-### Modelling
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
-### Evaluation
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
-## Recommendation and Analysis
-Explain the analysis and recommendations
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
 ## AI Ethics
 Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
