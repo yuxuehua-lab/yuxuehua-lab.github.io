@@ -161,7 +161,7 @@ Time-related columns (submission_time, submission_year, submission_month, submis
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
-<img width="250" height="650" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+<img width="250" height="500" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
 
 ###### _Fig 12 List of Features with Missing Values_
 
@@ -319,7 +319,7 @@ Insights generated would therefore be diluted and less actionable for targeted m
 
 To overcome these issues, the dataset was aggregated to the customer level.
 
-<img width="900" height="700" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
+<img width="700" height="550" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
 
 This approach summarized customer behaviour by consolidating purchase and engagement patterns to better capture overall preferences. It also removed duplication and thus ensured that each customer is represented by a single row, creating a dataset suitable for clustering.
 
