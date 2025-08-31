@@ -48,6 +48,7 @@ Reviews | 1M+ customer reviews on 2,000 products | 1M+ rows refined to 394k rows
 ###### _Fig 1: Number of reviews by year and quarter. The data from 2023 is excluded as it is incomplete._
 
 #### **5.2.	Review Dataset**
+
 The Review Dataset contains customer feedback on Sephora skincare products. The features are outlined in Fig 2: Data Dictionary of Review Dataset.
 
 <img width="550" height="360" alt="image" src="https://github.com/user-attachments/assets/d4948ab4-2cfb-40f7-9110-5a45615c0d1d" />
@@ -56,7 +57,7 @@ The Review Dataset contains customer feedback on Sephora skincare products. The 
 
 The key exploratory findings are summarized as follows:
 
-**1.	Focus on Skincare Category**
+##### 5.2.1.	Focus on Skincare Category
 
 The dataset contains reviews exclusively from the skincare category, with treatments, moisturizers, and cleansers being the most frequently reviewed product types.
 
@@ -64,7 +65,7 @@ The dataset contains reviews exclusively from the skincare category, with treatm
 
 ###### _Fig 3 Reviews count for each product category_
 
-**2.	Predominantly Asian Customer Base**
+##### 5.2.2. Predominantly Asian Customer Base
 
 Most reviewers have light to fair skin, brown eyes, and brown or black hair, with a majority reporting combination skin type. These characteristics suggest that the dataset largely represents Asian customers. This insight is valuable for designing region-specific marketing campaigns and product promotions that align with this demographic profile.
 
@@ -72,7 +73,7 @@ Most reviewers have light to fair skin, brown eyes, and brown or black hair, wit
 
 ###### _Fig 4 Customer Demographic_
 
-**3.	Positive Correlation Between Rating and Recommendation**
+##### 5.2.3. Positive Correlation Between Rating and Recommendation
 
 In general, higher product ratings are associated with a stronger likelihood of recommendation.
 -	Products rated 4 or 5 stars are highly recommended.
@@ -84,7 +85,7 @@ This suggests that a 3-star rating often reflects a neutral stance, highlighting
 
 ###### _Fig 5 Positive Correlation between Recommend and Rating_
 
-**4.	Price Tier Analysis**
+##### 5.2.4. Price Tier Analysis
 
 Based on the price distribution, most reviewed products fall within the lower price tier, primarily under $100. Higher-priced (i.e., prestige products) receive fewer reviews, possibly due to a smaller customer base for these premium items
 
@@ -103,7 +104,7 @@ The Product Dataset contains details on the product offering by Sephora. The fea
 
 The key exploratory findings are summarized as follows:
 
-**1.	Product Distribution**
+##### 5.3.1.	Product Distribution
 
 Most products fall into major categories such as Skincare, Makeup, Hair, Fragrance, and Bath & Body, which primarily target women. Smaller but notable groups include Mini Size, Men, Tools & Brushes, and Gifts, which represent more niche markets.
 
@@ -111,7 +112,7 @@ Most products fall into major categories such as Skincare, Makeup, Hair, Fragran
 
 ###### _Fig 8 Product Distribution_
 
-**2.	Product Popularity and Customer Engagement**
+##### 5.3.2.	Product Popularity and Customer Engagement
 
 Products with high loves counts tend to cluster around an average rating of 4.5, suggesting they are both popular and well-liked. Products with low loves counts but high ratings (>4.5) may represent new, niche, or underexposed items with untapped growth potential.
 
@@ -121,7 +122,7 @@ Ratings between 4.0–5.0 are generally associated with higher review volumes, i
 
 ###### _Fig 9 Product Popularity and Customer Engagement_
 
-**3.	Price and Customer Engagement**
+##### 5.3.3.	Price and Customer Engagement
 
 Ratings between 4.0–4.5 are most common in the price band just below USD 250, suggesting this range reflects a balance between affordability and high quality.
 
