@@ -189,7 +189,7 @@ Missing values were observed across various product categories for the ingredien
 
 During analysis of product categories, it was observed that the tertiary category was often insufficiently detailed. For example, Self Tanner products had vague tertiary labels such as “For Body” or “For Face,” which provided little distinction between product types.
 
-<img width="250" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
+<img width="150" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
 
 ###### _Fig 13 Vague tertiary labels_
 
