@@ -459,4 +459,6 @@ Transparency is important to maintain trust with customers and internal teams, e
 While this analysis provides actionable insights for Sephora, careful attention to privacy, fairness, accuracy, accountability, and transparency is essential to ensure ethical use of customer data. Future work should include ethical review procedures, bias mitigation, and clear documentation before deploying any targeted marketing strategies.
 
 ## Source Codes and Datasets
-Upload your model files and dataset into a GitHub repo and add the link here. 
+
+ITD214_Sephora_Clustering_v4.ipynb
+
