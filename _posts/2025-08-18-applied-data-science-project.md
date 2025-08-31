@@ -161,7 +161,7 @@ Time-related columns (submission_time, submission_year, submission_month, submis
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
-<img width="350" height="500" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+<img width="250" height="500" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
 
 ###### _Fig 12 List of Features with Missing Values_
 
