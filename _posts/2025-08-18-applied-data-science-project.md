@@ -17,7 +17,7 @@ Sephora was selected for this study for several reasons:
 Python and various libraries were used for this analysis.
 
 ## **3.	Business Objective**
-Our group aims to enhance Sephora’s customer satisfaction, uncover customer preferences, and drive product development decisions through data-driven analysis through four areas:
+Our group aims to enhance Sephora’s customer satisfaction, uncover customer preferences, and drive product development decisions through data-driven analysis from four areas:
 -	**Product Optimization through Sentiment Analysis** – understanding how customers feel about products to guide development.
 -	**Identifying Bottom 20 Products via XGBoost** – spotting underperforming products for potential improvement.
 -	**Identifying Factors for High Engagement (loves_count) via XGBoost + SHAP** – uncovering drivers of product popularity.
@@ -161,7 +161,7 @@ Time-related columns (submission_time, submission_year, submission_month, submis
 
 Several steps were taken to address missing values in the dataset to ensure data quality and reliability for segmentation.
 
-<img width="250" height="500" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
+<img width="250" height="650" alt="image" src="https://github.com/user-attachments/assets/775394fa-28de-4b5f-919c-c5a63381ef82" />
 
 ###### _Fig 12 List of Features with Missing Values_
 
@@ -189,15 +189,20 @@ Missing values were observed across various product categories for the ingredien
 
 During analysis of product categories, it was observed that the tertiary category was often insufficiently detailed. For example, Self Tanner products had vague tertiary labels such as “For Body” or “For Face,” which provided little distinction between product types.
 
-<img width="150" height="88" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
+<img width="350" height="90" alt="image" src="https://github.com/user-attachments/assets/4d7a9808-265f-42b9-a661-ef56a2d43263" />
 
-###### _Fig 13 Vague tertiary labels_
+###### _Fig 13a Vague tertiary labels_
 
 To address this, the secondary and tertiary categories were combined to create more specific distinctions between products. 
 
 Additionally, products with unclear or underpopulated categories were reclassified when appropriate; for instance, a product listed under “Shop by Concern” was reclassified under “Masks – Face Masks” to better reflect its function. 
 
 After these adjustments, the original primary, secondary, and tertiary category columns were dropped from the dataset, as the refined categorization provided a more meaningful representation for analysis.
+
+<img width="350" height="90" alt="image" src="https://github.com/user-attachments/assets/68b43534-12d0-4c8a-89fe-ab8c19158969" />
+
+###### _Fig 13b Refined Product Category labels_
+
 
 ##### **6.4.2.	Skin Tone**
 
@@ -213,7 +218,7 @@ Subsequently, a unit price per ml was calculated by dividing the product’s sel
 
 <img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/8b4e14c9-4d9b-4646-8c0b-8c99f16f98d8" />
 
-###### _Fig 14 Extract of top 10 products_
+###### _Fig 14 Examples of Refined Size_
 
 ##### **6.4.4.	First Draft of Dataset After Cleaning**
 
@@ -267,7 +272,7 @@ Continuous features such as price per ml, rating, and helpfulness were standardi
 
 ### **7.3 Modelling and Parameter Modelling**
 
-#### **7.3.1.	First Model Attempt – Full Features **
+#### **7.3.1.	First Model Attempt – Full Features**
 
 The first K-Means clustering model was built using the full set of features without dimensionality reduction. However, several issues were encountered during this stage. The model was computationally intensive and crashed multiple times due to the high dimensionality of the dataset.
 
@@ -279,9 +284,9 @@ The elbow graph generated from this model was nearly a straight line, further co
 
 After observing the limitations of the first model, a second K-Means clustering model was built using a refined set of features focused on customer-centric variables. The feature set was structured into three main categories:
 
--	Customer Characteristics: skin_tone, skin_type
--	Customer Purchasing Behavior: unit_price, size_ml, online_only, limited_edition, new, sephora_exclusive
--	Customer Engagement: rating, helpfulness, loves_count
+-	**Customer Characteristics**: skin_tone, skin_type
+-	**Customer Purchasing Behavior**: unit_price, size_ml, online_only, limited_edition, new, sephora_exclusive
+-	**Customer Engagement**: rating, helpfulness, loves_count
   
 This refined feature selection aimed to remove weakly correlated or redundant attributes and emphasize variables directly linked to customer profiles and behaviors.
 
@@ -314,7 +319,7 @@ Insights generated would therefore be diluted and less actionable for targeted m
 
 To overcome these issues, the dataset was aggregated to the customer level.
 
-<img width="700" height="550" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
+<img width="900" height="700" alt="image" src="https://github.com/user-attachments/assets/8eb5fdfb-9860-4e59-abb0-2665d94d2238" />
 
 This approach summarized customer behaviour by consolidating purchase and engagement patterns to better capture overall preferences. It also removed duplication and thus ensured that each customer is represented by a single row, creating a dataset suitable for clustering.
 
@@ -367,35 +372,39 @@ The distribution of customers across clusters is as follows:
 
 This distribution shows that clusters vary considerably in size, with Cluster 1 and Cluster 3 representing the largest customer segments, while Cluster 4 represents a much smaller, niche group. Such imbalances are common in customer segmentation and often indicate the presence of both mass-market customer bases and smaller, specialized personas.
 
+#### **9.1.	Customer Profiling**
+
+The characteristic of each clusters are summarized as follows:
+
 <img width="944" height="947" alt="image" src="https://github.com/user-attachments/assets/290f0fe5-1cd0-48b3-9d57-7152c8c02e67" />
 
 ###### _Fig 23 Characteristic Distribution of 5 Clusters_
 
-#### **9.1.	Cluster 0 - Luxury Mini buyers**
+##### **9.1.1	Cluster 0 - Luxury Mini buyers**
 
 Customers in Cluster 0 are characterized by high spending per product, yet they tend to purchase smaller-sized items, such as travel-size or luxury minis. This suggests that these customers are drawn to premium small-format products, possibly for trial purposes or as collectible luxury minis. 
 
 From a marketing perspective, this cluster can be targeted with mini sets, luxury trial kits, and gift sets, emphasizing exclusivity and premium quality. Personalized recommendations that highlight limited-edition or collectible items are likely to resonate with this group and encourage engagement and repeat purchases.
 
-#### **9.2.	Cluster 1 - Bargain hunters / Value-Driven Reviewers**
+##### **9.1.2.	Cluster 1 - Bargain hunters / Value-Driven Reviewers**
 
 Customers in Cluster 1 are value-driven shoppers who tend to purchase larger-sized products at lower unit prices. They also exhibit the highest helpfulness scores, indicating that they are more critical and detailed reviewers. This segment often prefers limited-edition products but seeks good value, suggesting a focus on mainstream items rather than premium luxury products. 
 
 From a marketing perspective, these customers can be targeted with discounts, value sets, loyalty rewards, and flash sales, which appeal to their price-conscious behaviour while encouraging engagement and repeat purchases.
 
-#### **9.3.	Cluster 2 - Highly engaged reviewers / social influencer**
+##### **9.1.3.	Cluster 2 - Highly engaged reviewers / social influencer**
 
 Customers in Cluster 2 are highly engaged shoppers who exhibit the highest loves count along with high helpfulness scores, indicating that they are both passionate about products and influential through their reviews. They typically purchase mid-sized products at lower unit prices, but also engage with mid- to high-range items, reflecting a willingness to invest in quality or premium products. This cluster shows a strong preference for Sephora-exclusive products, suggesting that these customers are drawn to unique and limited offerings.
 
 Marketing strategies for this segment could include early access programs, exclusive product drops, and insider clubs, leveraging their engagement to drive buzz, brand advocacy, and repeat purchases.
 
-#### **9.4.	Cluster 3 – Online Shopper**
+##### **9.1.4.	Cluster 3 – Online Shopper**
 
 Customers in Cluster 3 are primarily online-only shoppers who show high engagement with online purchases. They tend to give high product ratings but have low helpfulness scores, indicating that while they enjoy the products, they are less likely to write detailed or influential reviews. This segment typically purchases mid-sized products at mid-to-low price points, reflecting mainstream purchasing behavior.
 
 Marketing strategies for this group should focus on digital campaigns, online-only product launches, and app-exclusive offers, catering to their preference for convenient online shopping while encouraging repeat purchases through targeted digital promotions.
 
-#### **9.5.	Cluster 4 – Trendsetters / New-Product Enthusiasts**
+##### **9.1.5.	Cluster 4 – Trendsetters / New-Product Enthusiasts**
 
 Customers in Cluster 4 are trend-driven shoppers who show a strong preference for new and limited-edition products. They typically give high ratings and have moderate helpfulness scores, indicating they enjoy the products but provide only some review feedback. This segment tends to purchase larger-sized products at lower prices, reflecting a focus on value for money while staying ahead of trends. 
 
