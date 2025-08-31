@@ -361,7 +361,7 @@ Among the tested values, 5 and 6 clusters yielded the highest Silhouette scores.
 
 From a business perspective, **5 clusters were selected** as the optimal solution, as this balance avoids over-segmentation while ensuring sufficient differentiation to support actionable marketing insights.
 
-## 9. Recommendation and Analysis
+## **9. Recommendation and Analysis**
 
 The K-Means model was developed with 5 clusters, and the clusters were mapped back to the original dataset for customer profiling.
 The distribution of customers across clusters is as follows:
