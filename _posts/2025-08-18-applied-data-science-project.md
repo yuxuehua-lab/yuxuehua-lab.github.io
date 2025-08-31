@@ -460,5 +460,11 @@ While this analysis provides actionable insights for Sephora, careful attention 
 
 ## Source Codes and Datasets
 
+1. Dataset retrieved from:
+   
+Nady Inky (2023). Sephora Products and Skincare Reviews. Retrieved from Kaggle: https://www.kaggle.com/datasets/nadyinky/sephora-products-and-skincare-reviews/data
+
+2. Python files:
+
 https://github.com/yuxuehua-lab/itd214_proj
 
